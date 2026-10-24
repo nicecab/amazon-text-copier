@@ -6,6 +6,16 @@
   prConcurrentLimit: 5,
   platformAutomerge: true,
   automergeStrategy: 'squash',
+  // Security fixes skip the schedule and the PR limits; automerge them once the checks pass (majors included)
+  // so an advisory never waits for a manual merge. OSV adds advisories GitHub has not imported yet.
+  vulnerabilityAlerts: {
+    labels: ['security'],
+    automerge: true,
+    // This repository has no CI: merge without waiting for checks (the owner's choice).
+    ignoreTests: true,
+    platformAutomerge: false,
+  },
+  osvVulnerabilityAlerts: true,
   packageRules: [
     {
       description: 'Auto-merge non-major updates',
