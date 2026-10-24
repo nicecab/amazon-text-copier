@@ -1,4 +1,4 @@
-# Amazon Text Copier
+# Amazon ISBN Copy
 
 A Chrome extension that copies the ISBN-13 of a book on an Amazon product page to the clipboard with one click.
 
