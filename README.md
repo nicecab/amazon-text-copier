@@ -14,6 +14,8 @@ Supported sites: amazon.co.jp, amazon.com, amazon.co.uk
 
 Open a book's product page and click the extension icon in the toolbar. The ISBN-13 from the product details is copied to the clipboard.
 
+After a successful copy, a small "Copy success!" badge appears in the bottom-right corner for 2.5 seconds.
+
 After editing the source, click the reload button for the extension on `chrome://extensions`, then reload the Amazon page.
 
 ## Files

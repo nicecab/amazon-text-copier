@@ -19,7 +19,33 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
-async function copyToTheClipboard(textToCopy) {
+let copySuccessBadge;
+let copySuccessTimeout;
+
+function showCopySuccess() {
+  clearTimeout(copySuccessTimeout);
+  if (!copySuccessBadge) {
+    copySuccessBadge = document.createElement("div");
+    copySuccessBadge.style.cssText =
+      "all: initial; position: fixed; right: 24px; bottom: 24px; z-index: 2147483647; pointer-events: none;";
+    const shadow = copySuccessBadge.attachShadow({ mode: "closed" });
+    const badge = document.createElement("div");
+    badge.setAttribute("role", "status");
+    badge.style.cssText =
+      "background: #166534; color: #fff; padding: 10px 16px; border-radius: 8px; box-shadow: 0 4px 16px #0003; font: 600 14px/1.5 system-ui, sans-serif;";
+    shadow.appendChild(badge);
+    document.body.appendChild(copySuccessBadge);
+    badge.textContent = "Copy success!";
+  }
+  copySuccessTimeout = setTimeout(() => {
+    copySuccessBadge.remove();
+    copySuccessBadge = null;
+  }, 2500);
+}
+
+function copyToTheClipboard(textToCopy) {
+  if (!textToCopy.trim()) return;
+
   const el = document.createElement("textarea");
   el.value = textToCopy;
   el.setAttribute("readonly", "");
@@ -27,6 +53,11 @@ async function copyToTheClipboard(textToCopy) {
   el.style.left = "-9999px";
   document.body.appendChild(el);
   el.select();
-  document.execCommand("copy");
-  document.body.removeChild(el);
+  let copied = false;
+  try {
+    copied = document.execCommand("copy");
+  } finally {
+    document.body.removeChild(el);
+  }
+  if (copied) showCopySuccess();
 }
