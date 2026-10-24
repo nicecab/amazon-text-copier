@@ -32,7 +32,7 @@ function showCopySuccess() {
     const badge = document.createElement("div");
     badge.setAttribute("role", "status");
     badge.style.cssText =
-      "background: #166534; color: #fff; padding: 10px 16px; border-radius: 8px; box-shadow: 0 4px 16px #0003; font: 600 14px/1.5 system-ui, sans-serif;";
+      "background: #15803d; color: #fff; padding: 10px 16px; border-radius: 8px; box-shadow: 0 4px 16px #0003; font: 600 14px/1.5 system-ui, sans-serif;";
     shadow.appendChild(badge);
     document.body.appendChild(copySuccessBadge);
     badge.textContent = "Copy success!";
