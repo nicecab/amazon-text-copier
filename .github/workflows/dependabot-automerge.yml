@@ -1,0 +1,22 @@
+name: dependabot-automerge
+
+# Dependabot runs security updates only (no dependabot.yml), so every Dependabot PR fixes an advisory. This
+# repository has no CI to wait for, so the PR is merged as soon as it opens (the owner's choice).
+on:
+  pull_request:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  automerge:
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Merge
+        run: gh pr merge --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
