@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Amazon ISBN Copy",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Copies the ISBN-13 of a book on Amazon (.co.jp, .com, .co.uk) to the clipboard",
   "permissions": [
     "clipboardWrite"
