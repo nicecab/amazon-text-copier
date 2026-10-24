@@ -11,7 +11,7 @@
   vulnerabilityAlerts: {
     labels: ['security'],
     automerge: true,
-    // This repository has no CI: merge without waiting for checks (the owner's choice).
+    // CI only validates manifest.json and is not a required check: merge without waiting for checks (the owner's choice).
     ignoreTests: true,
     platformAutomerge: false,
   },

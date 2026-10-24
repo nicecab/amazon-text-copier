@@ -1,7 +1,7 @@
 name: dependabot-automerge
 
 # Dependabot runs security updates only (no dependabot.yml), so every Dependabot PR fixes an advisory. This
-# repository has no CI to wait for, so the PR is merged as soon as it opens (the owner's choice).
+# repository's CI only validates manifest.json and is not required, so the PR is merged as soon as it opens (the owner's choice).
 on:
   pull_request:
 

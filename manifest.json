@@ -1,11 +1,14 @@
 {
   "manifest_version": 3,
   "name": "Amazon Xpath Text Copier",
-  "version": "1.0",
-  "description": "Copies text from the specified xpath on Amazon.co.jp",
+  "version": "1.1",
+  "description": "Copies the ISBN-13 of a book on Amazon (.co.jp, .com, .co.uk) to the clipboard",
   "permissions": [
     "clipboardWrite"
   ],
+  "icons": {
+    "128": "icon.png"
+  },
   "action": {
     "default_icon": "icon.png"
   },
