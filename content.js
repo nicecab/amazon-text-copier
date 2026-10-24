@@ -27,7 +27,7 @@ function showCopySuccess() {
   if (!copySuccessBadge) {
     copySuccessBadge = document.createElement("div");
     copySuccessBadge.style.cssText =
-      "all: initial; position: fixed; right: 24px; bottom: 24px; z-index: 2147483647; pointer-events: none;";
+      "all: initial; position: fixed; right: 24px; top: 24px; z-index: 2147483647; pointer-events: none;";
     const shadow = copySuccessBadge.attachShadow({ mode: "closed" });
     const badge = document.createElement("div");
     badge.setAttribute("role", "status");
